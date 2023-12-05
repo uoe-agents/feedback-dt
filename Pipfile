@@ -1,0 +1,42 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+minigrid = "*"
+numpy = "*"
+cython = "*"
+gymnasium-robotics = "*"
+huggingface = "*"
+datasets = "*"
+scipy = "*"
+tqdm = "*"
+transformers = "*"
+jsonc-parser = "*"
+h5py = "*"
+gymnasium = "*"
+matplotlib = "*"
+seaborn-image = "*"
+plotly = "*"
+opencv-python = "*"
+dopamine-rl = "*"
+sentence-transformers = "*"
+seaborn = "*"
+tensorboardx = "*"
+essential-generators = "*"
+lorem-text = "*"
+feedback-dt = {file = "."}
+accelerate = "*"
+torch = "*"
+torchvision = "*"
+torchaudio = "*"
+torch-ac = "*"
+
+[dev-packages]
+pre-commit = "*"
+black = "*"
+ipykernel = "*"
+
+[requires]
+python_version = "3.8"

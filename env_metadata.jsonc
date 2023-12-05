@@ -1,0 +1,1748 @@
+{
+    "language": {
+        "objects": {
+            "color": [
+                "red",
+                "green",
+                "blue",
+                "purple",
+                "yellow",
+                "grey"
+            ],
+            "type": [
+                "ball",
+                "box",
+                "key"
+            ],
+            "loc": [
+                " ",
+                "in front of you",
+                "behind you",
+                "on your left",
+                "on your right"
+            ]
+        },
+        "sequence": [
+            "and",
+            ", then",
+            "after you"
+        ]
+    },
+    "defaults": {
+        "maze": {
+            "num_rows": 3,
+            "num_cols": 3,
+            "num_dists": 18
+        },
+        "room": {
+            "room_size": 8
+        },
+        "max_steps": "room_size**2 * num_rows * num_cols * num_nav (assuming 1 nav per simple instruction, 2-4 per sequence instruction (2-part/no and) / 3-6 per sequence instruction (3-part/with and) / 4-8 per sequence instruction (4-part/with and)"
+    },
+    "levels": {
+        "GoTo": {
+            "GoToRedBallGrey": {
+                "description": "Go to the red ball, single room, with distractors. The distractors are all grey to reduce perceptual complexity. This level has distractors but doesn’t make use of language.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the red ball"
+                    ],
+                    "color": false,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                // Note that distractors can only be grey
+                "maze": false,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                // Has distractor objects but no language variation
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 5.81,
+                "demo_std_n_steps": 3.29,
+                "registered_configs": {
+                    "BabyAI-GoToRedBallGrey-v0": {
+                        "num_dists": 7
+                    }
+                }
+            },
+            "GoToRedBall": {
+                "description": "Go to the red ball, single room, with distractors. This level has distractors but doesn’t make use of language.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the red ball"
+                    ],
+                    "color": false,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "maze": false,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                // Has distractor objects but no language variation
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 5.38,
+                "demo_std_n_steps": 3.13,
+                "registered_configs": {
+                    "BabyAI-GoToRedBall-v0": {
+                        "num_dists": 7
+                    }
+                }
+            },
+            "GoToRedBallNoDists": {
+                "description": "Go to the red ball. No distractors present.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the red ball"
+                    ],
+                    "color": false,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                "maze": false,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                // No language required as only one ball
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-GoToRedBallNoDists-v0": {}
+                }
+            },
+            "GoToObj": {
+                "description": "Go to an object, inside a single room with no doors, no distractors. The naming convention GoToObjS{X} represents a room of size X. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                "size": true,
+                "maze": false,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 5.18,
+                "demo_std_n_steps": 2.38,
+                "registered_configs": {
+                    "BabyAI-GoToObj-v0": {},
+                    "BabyAI-GoToObjS4-v0": {
+                        "room_size": 4
+                    },
+                    "BabyAI-GoToObjS6-v0": {
+                        "room_size": 6
+                    }
+                }
+            },
+            "GoToLocal": {
+                "description": "Go to an object, inside a single room with no doors, with distractors. The naming convention GoToObjS{X} represents a room of size X. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "size": true,
+                "maze": false,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": true,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 5.04,
+                "demo_std_n_steps": 2.76,
+                "registered_configs": {
+                    "BabyAI-GoToLocal-v0": {
+                        "num_dists": 8
+                    },
+                    "BabyAI-GoToLocalS5N2-v0": {
+                        "room_size": 5,
+                        "num_dists": 2
+                    },
+                    "BabyAI-GoToLocalS6N2-v0": {
+                        "room_size": 6,
+                        "num_dists": 2
+                    },
+                    "BabyAI-GoToLocalS6N3-v0": {
+                        "room_size": 6,
+                        "num_dists": 3
+                    },
+                    "BabyAI-GoToLocalS6N4-v0": {
+                        "room_size": 6,
+                        "num_dists": 4
+                    },
+                    "BabyAI-GoToLocalS7N4-v0": {
+                        "room_size": 7,
+                        "num_dists": 4
+                    },
+                    "BabyAI-GoToLocalS7N5-v0": {
+                        "room_size": 7,
+                        "num_dists": 5
+                    },
+                    "BabyAI-GoToLocalS8N2-v0": {
+                        "num_dists": 2
+                    },
+                    "BabyAI-GoToLocalS8N3-v0": {
+                        "num_dists": 3
+                    },
+                    "BabyAI-GoToLocalS8N4-v0": {
+                        "num_dists": 4
+                    },
+                    "BabyAI-GoToLocalS8N5-v0": {
+                        "num_dists": 5
+                    },
+                    "BabyAI-GoToLocalS8N6-v0": {
+                        "num_dists": 6
+                    },
+                    "BabyAI-GoToLocalS8N7-v0": {
+                        "num_dists": 7
+                    }
+                }
+            },
+            "GoTo": {
+                "description": "Go to an object, the object may be in another room. Many distractors. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "size": true,
+                "maze": true,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": true,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    5
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 56.8,
+                "demo_std_n_steps": 46.7,
+                "registered_configs": {
+                    "BabyAI-GoTo-v0": {},
+                    "BabyAI-GoToOpen-v0": {
+                        "doors_open": true
+                    }
+                }
+            },
+            "GoToObjMaze": {
+                "description": "Go to an object, the object may be in another room. No distractors. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                "size": true,
+                "maze": true,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": true,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    5
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 70.8,
+                "demo_std_n_steps": 48.9,
+                "registered_configs": {
+                    "BabyAI-GoToObjMaze-v0": {
+                        "num_dists": 1
+                    },
+                    "BabyAI-GoToObjMazeOpen-v0": {
+                        "num_dists": 1,
+                        "doors_open": true
+                    },
+                    "BabyAI-GoToObjMazeS4R2-v0": {
+                        "num_dists": 1,
+                        "room_size": 4,
+                        "num_rows": 2,
+                        "num_cols": 2
+                    },
+                    "BabyAI-GoToObjMazeS4-v0": {
+                        "num_dists": 1,
+                        "room_size": 4
+                    },
+                    "BabyAI-GoToObjMazeS5-v0": {
+                        "num_dists": 1,
+                        "room_size": 5
+                    },
+                    "BabyAI-GoToObjMazeS6-v0": {
+                        "num_dists": 1,
+                        "room_size": 6
+                    },
+                    "BabyAI-GoToObjMazeS7-v0": {
+                        "num_dists": 1,
+                        "room_size": 7
+                    }
+                }
+            },
+            "GoToImpUnlock": {
+                "description": "Go to an object, which may be in a locked room. Competencies: Maze, GoTo, ImpUnlock No unblocking. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "maze": true,
+                "unlock": true,
+                "unlock_implicit": true,
+                "unblock": false,
+                "goto": true,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 110,
+                "demo_std_n_steps": 81.9,
+                "registered_configs": {
+                    "BabyAI-GoToImpUnlock-v0": {
+                        "num_dists": 16
+                    }
+                }
+            },
+            "GoToSeq": {
+                "description": "Sequencing of go-to-object commands. Competencies: Maze, GoTo, Seq No locked room. No locations. No unblocking. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": true
+                },
+                "distractors": true,
+                "size": true,
+                "maze": true,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": true,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 72.7,
+                "demo_std_n_steps": 52.2,
+                "registered_configs": {
+                    "BabyAI-GoToSeq-v0": {},
+                    "BabyAI-GoToSeqS5R2-v0": {
+                        "room_size": 5,
+                        "num_rows": 2,
+                        "num_cols": 2,
+                        "num_dists": 4,
+                        "max_steps": 100
+                    }
+                }
+            },
+            "GoToRedBlueBall": {
+                "description": "Go to the red ball or to the blue ball. There is exactly one red or blue ball, and some distractors. The distractors are guaranteed not to be red or blue balls. Language is not required to solve this level. {color} is the color of the box. Can be 'red” or 'blue”.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} ball"
+                    ],
+                    "color": true,
+                    // Note that color is limited to "red" or "blue"
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                // Note that distractors cannot be red or blue balls
+                "maze": false,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": true,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-GoToRedBlueBall-v0": {
+                        "num_dists": 7
+                    }
+                }
+            },
+            "GoToDoor": {
+                "description": "Go to a door (of a given color, in the current room) No distractors, no language variation. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} door"
+                    ],
+                    "color": true,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                "maze": "observation_only",
+                // While this is in a room in a maze, the mission refers to the current room (so strictly speaking no maze navigation is required)
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-GoToDoor-v0": {
+                        "room_size": 7
+                    }
+                }
+            },
+            "GoToObjDoor": {
+                "description": "Go to an object or door (of a given type and color, in the current room). {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type}",
+                        "go to the {color} door"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "maze": "observation_only",
+                // While this is in a room in a maze, the mission refers to the current room (so strictly speaking no maze navigation is required)
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": true,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-GoToObjDoor-v0": {
+                        "num_dists": 8
+                    }
+                }
+            }
+        },
+        "Open": {
+            "Open": {
+                "description": "Open a door, which may be in another room. {color} is the color of the door. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "open the {color} door"
+                    ],
+                    "color": true,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "maze": true,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": true,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    5
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 31.5,
+                "demo_std_n_steps": 30.5,
+                "registered_configs": {
+                    "BabyAI-Open-v0": {}
+                }
+            },
+            "OpenDoor": {
+                "description": "Go to the door. The door to open is given by its color or by its location. (always unlocked, in the current room). {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "open the {color} door",
+                        "open the door {location}"
+                    ],
+                    "color": true,
+                    "type": false,
+                    "location": true,
+                    "sequence": false
+                },
+                "distractors": false,
+                "maze": "observation_only",
+                // While this is in a room in a maze, the mission refers to the current room (so strictly speaking no maze navigation is required)
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": true,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-OpenDoor-v0": {},
+                    "BabyAI-OpenDoorColor-v0": {
+                        "select_by": "color"
+                    },
+                    "BabyAI-OpenDoorLoc-v0": {
+                        "select_by": "loc"
+                    }
+                }
+            },
+            "OpenTwoDoors": {
+                "description": "Open door X, then open door Y. The two doors are facing opposite directions, so that the agent can’t see whether the door behind him is open. This task requires memory (recurrent policy) to be solved effectively. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "open the {color} door"
+                    ],
+                    "color": true,
+                    "type": false,
+                    "location": false,
+                    "and": false,
+                    "sequence": true
+                    // Note that sequences are limited to ", then"
+                },
+                "distractors": false,
+                "maze": "observation_only",
+                // While this is in a room in a maze, the mission refers to the current room (so strictly speaking no maze navigation is required)
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": true,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-OpenTwoDoors-v0": {
+                        "room_size": 6,
+                        "max_steps": 720
+                    },
+                    "BabyAI-OpenRedBlueDoors-v0": {
+                        "first_color": "red",
+                        "second_color": "blue",
+                        "room_size": 6,
+                        "max_steps": 720
+                    }
+                }
+            },
+            "OpenDoorsOrder": {
+                "description": "Open one or two doors in the order specified. 'open the {color} door, the open the {color} door” or “open the {color} door after you open the {color} door” or “open the {color} door”. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "open the {color} door"
+                    ],
+                    "color": true,
+                    "type": false,
+                    "location": false,
+                    "and": false,
+                    "sequence": true
+                },
+                "distractors": false,
+                "maze": "observation_only",
+                // While this is in a room in a maze, the mission refers to the current room (so strictly speaking no maze navigation is required)
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": true,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-OpenDoorsOrderN2-v0": {
+                        "room_size": 6,
+                        "max_steps": 720,
+                        "num_doors": 2
+                    },
+                    "BabyAI-OpenDoorsOrderN4-v0": {
+                        "room_size": 6,
+                        "max_steps": 720,
+                        "num_doors": 4
+                    }
+                }
+            }
+        },
+        "Pickup": {
+            "Pickup": {
+                "description": "Pick up an object, which may be in another room. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "pick up a {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "maze": true,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": false,
+                "pickup": true,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 57.8,
+                "demo_std_n_steps": 46.7,
+                "registered_configs": {
+                    "BabyAI-Pickup-v0": {}
+                }
+            },
+            "UnblockPickup": {
+                "description": "Pick up an object, the object may be in another room. The path may be blocked by one or more obstructors. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "pick up a {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "maze": true,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": true,
+                "goto": false,
+                "open": false,
+                "pickup": true,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 57.2,
+                "demo_std_n_steps": 50,
+                "registered_configs": {
+                    "BabyAI-UnblockPickup-v0": {
+                        "num_dists": 20
+                    }
+                }
+            },
+            "PickupLoc": {
+                "description": "Pick up an object which may be described using its location. This is a single room environment. Competencies: PickUp, Loc. No unblocking. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'. {location} can be ' ', 'in front of you', 'behind you', 'on your left' or 'on your right'",
+                "mission_space": {
+                    "action_mission_space": [
+                        "pick up a {color} {type} {location}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": true,
+                    "sequence": false
+                },
+                "distractors": true,
+                "maze": false,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": false,
+                "pickup": true,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 6.13,
+                "demo_std_n_steps": 2.97,
+                "registered_configs": {
+                    "BabyAI-PickupLoc-v0": {
+                        "num_dists": 8
+                    }
+                }
+            },
+            "PickuDist": {
+                "description": "Pick up an object The object to pick up is given by its type only, or by its color, or by its type and color (in the current room, with distractors). {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "pick up a {color} {type}",
+                        "pick up a {color}",
+                        "pick up a {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "maze": false,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": false,
+                "pickup": true,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-PickupDist-v0": {
+                        "room_size": 7,
+                        "num_dists": 5
+                    }
+                }
+            },
+            "PickupAbove": {
+                "description": "Pick up an object (in the room above) This task requires to use the compass to be solved effectively. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "pick up a {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "maze": true,
+                // While this is in a room in a maze, the mission refers to the room above the current room
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": false,
+                "pickup": true,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-PickupAbove-v0": {
+                        "room_size": 6,
+                        "max_steps": 288
+                    }
+                }
+            }
+        },
+        "PutNext": {
+            "PutNextLocal": {
+                "description": "Put an object next to another object, inside a single room with no doors, no distractors. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "put the {color} {type} next to the {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "size": true,
+                "maze": false,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": true,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 12.4,
+                "demo_std_n_steps": 4.54,
+                "registered_configs": {
+                    "BabyAI-PutNextLocal-v0": {
+                        "num_dists": 6 // = n_obj - 2
+                    },
+                    "BabyAI-PutNextLocalS5N3-v0": {
+                        "room_size": 5,
+                        "num_dists": 1 // = n_obj - 2
+                    },
+                    "BabyAI-PutNextLocalS6N4-v0": {
+                        "room_size": 6,
+                        "num_dists": 2 // = n_obj - 2
+                    }
+                }
+            },
+            "PutNext": {
+                "description": "Task of the form: move the A next to the B and the C next to the D. This task is structured to have a very large number of possible instructions. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "put the {color} {type} next to the {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "size": true,
+                "maze": true,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": true,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 89.9,
+                "demo_std_n_steps": 49.6,
+                "registered_configs": {
+                    "BabyAI-PutNextS4N1-v0": {
+                        "room_size": 4,
+                        "num_rows": 1,
+                        "num_cols": 2,
+                        "max_steps": 128
+                    },
+                    "BabyAI-PutNextS5N1-v0": {
+                        "room_size": 5,
+                        "num_rows": 1,
+                        "num_cols": 2,
+                        "max_steps": 200
+                    },
+                    "BabyAI-PutNextS5N2-v0": {
+                        "room_size": 5,
+                        "num_rows": 1,
+                        "num_cols": 2,
+                        "num_dists": 2, // = n_obj * 2 - 2
+                        "max_steps": 200
+                    },
+                    "BabyAI-PutNextS6N3-v0": {
+                        "room_size": 6,
+                        "num_rows": 1,
+                        "num_cols": 2,
+                        "num_dists": 4, // = n_obj * 2 - 2
+                        "max_steps": 288
+                    },
+                    "BabyAI-PutNextS7N4-v0": {
+                        "room_size": 7,
+                        "num_rows": 1,
+                        "num_cols": 2,
+                        "num_dists": 6, // = n_obj * 2 - 2
+                        "max_steps": 392
+                    },
+                    "BabyAI-PutNextS5N2Carrying-v0": {
+                        "room_size": 5,
+                        "num_rows": 1,
+                        "num_cols": 2,
+                        "num_dists": 2, // = n_obj * 2 - 2
+                        "max_steps": 200,
+                        "start_carrying": true,
+                        "used_action_space": [
+                            0,
+                            1,
+                            2,
+                            4,
+                            5
+                        ] // No pickup action is required
+                    },
+                    "BabyAI-PutNextS6N3Carrying-v0": {
+                        "room_size": 6,
+                        "num_rows": 1,
+                        "num_cols": 2,
+                        "num_dists": 4, // = n_obj * 2 - 2
+                        "max_steps": 288,
+                        "start_carrying": true,
+                        "used_action_space": [
+                            0,
+                            1,
+                            2,
+                            4,
+                            5
+                        ] // No pickup action is required
+                    },
+                    "BabyAI-PutNextS7N4Carrying-v0": {
+                        "room_size": 7,
+                        "num_rows": 1,
+                        "num_cols": 2,
+                        "num_dists": 6, // = n_obj * 2 - 2
+                        "max_steps": 392,
+                        "start_carrying": true,
+                        "used_action_space": [
+                            0,
+                            1,
+                            2,
+                            4,
+                            5
+                        ] // No pickup action is required
+                    }
+                }
+            }
+        },
+        "Unlock": {
+            "Unlock": {
+                "description": "Unlock a door. Competencies: Maze, Open, Unlock. No unblocking. {color} is the color of the door. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "open the {color} door"
+                    ],
+                    "color": true,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "maze": true,
+                "unlock": true,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": true,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 81.6,
+                "demo_std_n_steps": 61.1,
+                "registered_configs": {
+                    "BabyAI-Unlock-v0": {
+                        "num_dists": 24
+                    }
+                }
+            },
+            "UnlockLocal": {
+                "description": "Fetch a key and unlock a door (in the current room).",
+                "mission_space": {
+                    "action_mission_space": [
+                        "open the door"
+                    ],
+                    "color": false,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                "maze": "observation_only",
+                // While this is in a room in a maze, the mission refers to the current room (so strictly speaking no maze navigation is required)
+                "unlock": true,
+                "unlock_implicit": false,
+                "unblock": false,
+                // No language required as only one door
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-UnlockLocal-v0": {},
+                    "BabyAI-UnlockLocalDist-v0": {
+                        "num_dists": 3,
+                        "distractors": true
+                    }
+                }
+            },
+            "KeyInBox": {
+                "description": "Unlock a door. Key is in a box (in the current room).",
+                "mission_space": {
+                    "action_mission_space": [
+                        "open the door"
+                    ],
+                    "color": false,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                "maze": "observation_only",
+                // While this is in a room in a maze, the mission refers to the current room (so strictly speaking no maze navigation is required)
+                "unlock": true,
+                "unlock_implicit": false,
+                "unblock": false,
+                // No language required as only one door
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-KeyInBox-v0": {}
+                }
+            },
+            "UnlockPickup": {
+                "description": "Unlock a door, then pick up a box in another room. {color} is the color of the door. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "pick up the {color} box"
+                    ],
+                    "color": true,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                "maze": true,
+                "unlock": true,
+                "unlock_implicit": false,
+                "unblock": false,
+                // No language required as only one box
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-UnlockPickup-v0": {
+                        "room_size": 6,
+                        "num_rows": 1,
+                        "num_cols": 2
+                    },
+                    "BabyAI-UnlockPickupDist-v0": {
+                        "room_size": 6,
+                        "num_rows": 1,
+                        "num_cols": 2,
+                        "distractors": true,
+                        "num_dists": 4,
+                        "pickup": true
+                    }
+                }
+            },
+            "BlockedUnlockPickup": {
+                "description": "Unlock a door blocked by a ball, then pick up a box in another room",
+                "mission_space": {
+                    "action_mission_space": [
+                        "pick up the box"
+                    ],
+                    "color": false,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                "maze": true,
+                "unlock": true,
+                "unlock_implicit": false,
+                "unblock": true,
+                // No language required as only one box
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-BlockedUnlockPickup-v0": {
+                        "room_size": 6,
+                        "num_rows": 1,
+                        "num_cols": 2
+                    }
+                }
+            },
+            "UnlockToUnlock": {
+                "description": "Unlock a door A that requires to unlock a door B before",
+                "mission_space": {
+                    "action_mission_space": [
+                        "pick up the ball"
+                    ],
+                    "color": false,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                "maze": true,
+                "unlock": true,
+                "unlock_implicit": false,
+                "unblock": false,
+                // No language required as only one box
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-UnlockToUnlock-v0": {
+                        "room_size": 6,
+                        "num_rows": 1,
+                        "num_cols": 3,
+                        "max_steps": 1080
+                    }
+                }
+            }
+        },
+        "Other": {
+            // THIS INCLUDES GOTO, OPEN AND PICKUP TASKS
+            "ActionObjDoor": {
+                "description": "[pick up an object] or [go to an object or door] or [open a door] (in the current room)",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type}",
+                        "go to the {color} door",
+                        "open a {color} door",
+                        "pick up the {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "maze": "observation_only",
+                // While this is in a room in a maze, the mission refers to the current room (so strictly speaking no maze navigation is required)
+                "unlock": true,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": true,
+                "open": true,
+                "pickup": true,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-ActionObjDoor-v0": {
+                        "room_size": 7,
+                        "num_dists": 5
+                    }
+                }
+            },
+            // THIS IS A PICKUP TASK
+            "FindObj": {
+                "description": "Pick up an object (in a random room) Rooms have a size of 5 This level requires potentially exhaustive exploration",
+                "mission_space": {
+                    "action_mission_space": [
+                        "pick up the {type}"
+                    ],
+                    "color": false,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                "size": true,
+                "maze": true,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                // No language required as only one object
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-FindObjS5-v0": {
+                        "room_size": 5,
+                        "max_steps": 500
+                    },
+                    "BabyAI-FindObjS6-v0": {
+                        "room_size": 6,
+                        "max_steps": 720
+                    },
+                    "BabyAI-FindObjS7-v0": {
+                        "room_size": 980
+                    }
+                }
+            },
+            // THIS IS AN UNLOCK TASK
+            "KeyCorridor": {
+                "description": "A ball is behind a locked door, the key is placed in a random room.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "pick up the ball"
+                    ],
+                    "color": false,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                "size": true,
+                "maze": true,
+                "unlock": true,
+                "unlock_implicit": false,
+                "unblock": false,
+                // No language required as only one ball
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-KeyCorridor-v0": {
+                        "room_size": 6,
+                        "max_steps": 1080
+                    },
+                    "BabyAI-KeyCorridorS3R1-v0": {
+                        "room_size": 3,
+                        "num_rows": 1,
+                        "max_steps": 270
+                    },
+                    "BabyAI-KeyCorridorS3R2-v0": {
+                        "room_size": 3,
+                        "num_rows": 2,
+                        "max_steps": 270
+                    },
+                    "BabyAI-KeyCorridorS3R3-v0": {
+                        "room_size": 3,
+                        "max_steps": 270
+                    },
+                    "BabyAI-KeyCorridorS4R3-v0": {
+                        "room_size": 4,
+                        "max_steps": 480
+                    },
+                    "BabyAI-KeyCorridorS5R3-v0": {
+                        "room_size": 5,
+                        "max_steps": 750
+                    }
+                    // "BabyAI-KeyCorridorS6R3-v0": {
+                    //     "room_size": 6,
+                    //     "max_steps": 1080
+                    // }
+                    // This is the same as the vanilla config
+                }
+            },
+            // THIS IS A PICKUP TASK
+            "OneRoom": {
+                "description": "Pick up the ball. Rooms have a size of 8.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "pick up the ball"
+                    ],
+                    "color": false,
+                    "type": false,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": false,
+                "size": true,
+                "maze": false,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                // No language required as only one object
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": false,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-OneRoomS8-v0": {},
+                    "BabyAI-OneRoomS12-v0": {
+                        "room_size": 12
+                    },
+                    "BabyAI-OneRoomS16-v0": {
+                        "room_size": 16
+                    },
+                    "BabyAI-OneRoomS20-v0": {
+                        "room_size": 20
+                    }
+                }
+            },
+            // THIS IS A PUTNEXT TASK
+            "MoveTwoAcross": {
+                "description": "Task of the form: move the A next to the B and the C next to the D. This task is structured to have a very large number of possible instructions. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'.",
+                "mission_space": {
+                    "action_mission_space": [
+                        "put the {color} {type} next to the {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "and": false,
+                    "sequence": true
+                },
+                "distractors": false,
+                "size": true,
+                "maze": false,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": false,
+                "goto": false,
+                "open": false,
+                "pickup": false,
+                "putnext": true,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-MoveTwoAcrossS5N2-v0": {
+                        "room_size": 5,
+                        "num_rows": 1,
+                        "num_cols": 2,
+                        "num_dists": 4,
+                        "max_steps": 400
+                    },
+                    "BabyAI-MoveTwoAcrossS8N9-v0": {
+                        "num_rows": 1,
+                        "num_cols": 2,
+                        "num_dists": 18,
+                        "max_steps": 1024,
+                        "distractors": true
+                    }
+                }
+            }
+        },
+        "Synth": {
+            "Synth": {
+                "description": "Union of all instructions from PutNext, Open, Goto and PickUp. The agent may need to move objects around. The agent may have to unlock the door, but only if it is explicitly referred by the instruction. Competencies: Maze, Unblock, Unlock, GoTo, PickUp, PutNext, Open. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type}",
+                        "open the {color} door",
+                        "pick up a/the {color} {type}",
+                        "put the {color} {type} next to the {color} {type}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": false,
+                    "sequence": false
+                },
+                "distractors": true,
+                "size": true,
+                "maze": true,
+                "unlock": true,
+                "unlock_implicit": false,
+                "unblock": true,
+                "goto": true,
+                "open": true,
+                "pickup": true,
+                "putnext": true,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 50.4,
+                "demo_std_n_steps": 49.3,
+                "registered_configs": {
+                    "BabyAI-Synth-v0": {},
+                    "BabyAI-SynthS5R2-v0": {
+                        "room_size": 5,
+                        "num_rows": 2,
+                        "num_dists": 18
+                    }
+                }
+            },
+            "SynthLoc": {
+                "description": "Like Synth, but a significant share of object descriptions involves location language like in PickUpLoc. No implicit unlock. Competencies: Maze, Unblock, Unlock, GoTo, PickUp, PutNext, Open, Loc. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'. {location} can be ' ', 'in front of you', 'behind you', 'on your left' or 'on your right'",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type} {location}",
+                        "pick up a/the {color} {type} {location}",
+                        "open the {color} door {location}",
+                        "put the {color} {type} {location} next to the {color} {type} {location}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": true,
+                    "sequence": false
+                },
+                "distractors": true,
+                "maze": true,
+                "unlock": true,
+                "unlock_implicit": false,
+                "unblock": true,
+                "goto": true,
+                "open": true,
+                "pickup": true,
+                "putnext": true,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 47.9,
+                "demo_std_n_steps": 47.9,
+                "registered_configs": {
+                    "BabyAI-SynthLoc-v0": {}
+                }
+            },
+            "SynthSeq": {
+                "description": "Like SynthLoc, but now with multiple commands, combined just like in GoToSeq. No implicit unlock. Competencies: Maze, Unblock, Unlock, GoTo, PickUp, PutNext, Open, Loc, Seq. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'. {location} can be ' ', 'in front of you', 'behind you', 'on your left' or 'on your right'",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type} {location}",
+                        "pick up a/the {color} {type} {location}",
+                        "open the {color} door {location}",
+                        "put the {color} {type} {location} next to the {color} {type} {location}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": true,
+                    "sequence": true
+                },
+                "distractors": true,
+                "maze": true,
+                "unlock": true,
+                "unlock_implicit": false,
+                "unblock": true,
+                "goto": true,
+                "open": true,
+                "pickup": true,
+                "putnext": true,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 81.8,
+                "demo_std_n_steps": 61.3,
+                "registered_configs": {
+                    "BabyAI-SynthSeq-v0": {}
+                }
+            },
+            "MiniBossLevel": {
+                "description": "Command can be any sentence drawn from the Baby Language grammar. Union of all competencies. This level is a superset of all other levels. Compared to BossLevel this has a smaller room and a lower probability of locked rooms. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'. {location} can be ' ', 'in front of you', 'behind you', 'on your left' or 'on your right'",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type} {location}",
+                        "pick up a/the {color} {type} {location}",
+                        "open the {color} door {location}",
+                        "put the {color} {type} {location} next to the {color} {type} {location}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": true,
+                    "sequence": true
+                },
+                "distractors": true,
+                "maze": true,
+                "unlock": true,
+                "unlock_implicit": true,
+                "unblock": true,
+                "goto": true,
+                "open": true,
+                "pickup": true,
+                "putnext": true,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-MiniBossLevel-v0": {
+                        "room_size": 3,
+                        "num_rows": 2,
+                        "num_cols": 2,
+                        "num_dists": 7
+                    }
+                }
+            },
+            "BossLevel": {
+                "description": "Command can be any sentence drawn from the Baby Language grammar. Union of all competencies. This level is a superset of all other levels. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'. {location} can be ' ', 'in front of you', 'behind you', 'on your left' or 'on your right'",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type} {location}",
+                        "pick up a/the {color} {type} {location}",
+                        "open the {color} door {location}",
+                        "put the {color} {type} {location} next to the {color} {type} {location}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": true,
+                    "sequence": true
+                },
+                "distractors": true,
+                "maze": true,
+                "unlock": true,
+                "unlock_implicit": true,
+                "unblock": true,
+                "goto": true,
+                "open": true,
+                "pickup": true,
+                "putnext": true,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "original_task": true,
+                "demo_mean_n_steps": 84.3,
+                "demo_std_n_steps": 64.5,
+                "registered_configs": {
+                    "BabyAI-BossLevel-v0": {}
+                }
+            },
+            "BossLevelNoUnlock": {
+                "description": "Command can be any sentence drawn from the Baby Language grammar. Union of all competencies. This level is a superset of all other levels. No implicit unlocking. {color} is the color of the object. Can be 'red', 'green', 'blue', 'purple', 'yellow' or 'grey'. {type} is the type of the object. Can be 'ball', 'box' or 'key'. {location} can be ' ', 'in front of you', 'behind you', 'on your left' or 'on your right'",
+                "mission_space": {
+                    "action_mission_space": [
+                        "go to the {color} {type} {location}",
+                        "pick up a/the {color} {type} {location}",
+                        "open the {color} door {location}",
+                        "put the {color} {type} {location} next to the {color} {type} {location}"
+                    ],
+                    "color": true,
+                    "type": true,
+                    "location": true,
+                    "sequence": true
+                },
+                "distractors": true,
+                "maze": true,
+                "unlock": false,
+                "unlock_implicit": false,
+                "unblock": true,
+                "goto": true,
+                "open": true,
+                "pickup": true,
+                "putnext": true,
+                "used_action_space": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "original_task": false,
+                "registered_configs": {
+                    "BabyAI-BossLevelNoUnlock-v0": {}
+                }
+            }
+        }
+    }
+}
